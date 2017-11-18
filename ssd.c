@@ -30,8 +30,14 @@ void displayNumber(int num) {
     10, 10, 10, 10
   };
   int i = 3;
+  int testNum;
   while (num > 0) {
-    digit[i] = num % 10;
+    testNum = num % 10;
+    if (!testNum) {
+      digit[i] = 0;
+    } else {
+      digit[i] = testNum;
+    }
     num /= 10;
     i--;
   }
@@ -45,9 +51,7 @@ void displayNumber(int num) {
     } else if(i == 3) {
       display_com4();
     }
-    if (digit[i]) {
-      choose_number(digit[i]);
-    }
+    choose_number(digit[i]);
     delay(3);
   }
 }
